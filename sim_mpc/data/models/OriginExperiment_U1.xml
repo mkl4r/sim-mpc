@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco model="arm_hand_SG (v2.0)">
+	<compiler inertiafromgeom="auto" angle="radian" meshdir="Geometry/" balanceinertia="true"></compiler>
+	<size nuser_jnt="1" nuser_geom="1"></size>
+	<option timestep="0.002" gravity="0 -9.80665 0" viscosity="0" iterations="100"></option>
+	<visual>
+		<quality shadowsize="4096" offsamples="30" numslices="28" numstacks="16" numquads="4"></quality>
+	</visual>
+	<asset>
+		<material name="MatGnd" specular=".3" shininess=".3" reflectance="0.3" rgba=".5 .55 .5 1"></material>
+		<material name="bckgmat" specular=".3" shininess=".3" rgba=".7 .7 .7 1"></material>
+		<mesh file="thorax.stl" scale="    1.07     1.07     1.07"></mesh>
+		<mesh file="clavicle.stl" scale="    1.07     1.07     1.07"></mesh>
+		<mesh file="scapula.stl" scale="    1.07     1.07     1.07"></mesh>
+		<mesh file="humerus.stl" scale=" 1.19938  1.19938  1.19938"></mesh>
+		<mesh file="ulna.stl" scale="0.982641 0.982641 0.982641"></mesh>
+		<mesh file="radius.stl" scale="0.982641 0.982641 0.982641"></mesh>
+		<mesh file="lunate_MODIFIED.stl" scale=" 1.21671  1.21671  1.21671"></mesh>
+		<mesh file="sdfastSCAPHOIDw.stl" scale=" 1.21671  1.21671  1.21671"></mesh>
+		<mesh file="sdfastPISIFORMw.stl" scale=" 1.21671  1.21671  1.21671"></mesh>
+		<mesh file="sdfastTRIQUETRALw.stl" scale=" 1.21671  1.21671  1.21671"></mesh>
+		<mesh file="sdfast_1seg_hand_fr_c_5mc.stl" scale=" 1.21671  1.21671  1.21671"></mesh>
+		<mesh file="sdfast_1seg_hand_fr_c_4mc.stl" scale=" 1.21671  1.21671  1.21671"></mesh>
+		<mesh file="sdfast_1seg_hand_fr_c_3mc.stl" scale=" 1.21671  1.21671  1.21671"></mesh>
+		<mesh name="sdfast_1seg_hand_fr_c_2mc" file="sdfast_1seg_hand_fr_c_2mc_local2.stl" scale=" 1.21671  1.21671  1.21671"></mesh>
+		<mesh file="sdfast_1seg_hand_fr_c_trapezium.stl" scale=" 1.21671  1.21671  1.21671"></mesh>
+		<mesh file="sdfast_1seg_hand_fr_c_trapezoid.stl" scale=" 1.21671  1.21671  1.21671"></mesh>
+		<mesh file="sdfast_1seg_hand_fr_c_hamate.stl" scale=" 1.21671  1.21671  1.21671"></mesh>
+		<mesh file="capitate.stl" scale=" 1.21671  1.21671  1.21671"></mesh>
+		<mesh name="hand_2proxph" file="hand_2proxph_local2.stl" scale=" 1.21671  1.21671  1.21671"></mesh>
+		<mesh name="hand_2midph" file="hand_2midph_local2.stl" scale=" 1.21671  1.21671  1.21671"></mesh>
+		<mesh name="hand_2distph" file="hand_2distph_local2.stl" scale=" 1.21671  1.21671  1.21671"></mesh>
+		<mesh file="hand_3proxph.stl" scale=" 1.21671  1.21671  1.21671"></mesh>
+		<mesh file="hand_3midph.stl" scale=" 1.21671  1.21671  1.21671"></mesh>
+		<mesh file="hand_3distph.stl" scale=" 1.21671  1.21671  1.21671"></mesh>
+		<mesh file="hand_4proxph.stl" scale=" 1.21671  1.21671  1.21671"></mesh>
+		<mesh file="hand_4midph.stl" scale=" 1.21671  1.21671  1.21671"></mesh>
+		<mesh file="hand_4distph.stl" scale=" 1.21671  1.21671  1.21671"></mesh>
+		<mesh file="hand_5proxph.stl" scale=" 1.21671  1.21671  1.21671"></mesh>
+		<mesh file="hand_5midph.stl" scale=" 1.21671  1.21671  1.21671"></mesh>
+		<mesh file="hand_5distph.stl" scale=" 1.21671  1.21671  1.21671"></mesh>
+		<mesh file="hand_thumbprox.stl" scale=" 1.21671  1.21671  1.21671"></mesh>
+		<mesh file="hand_thumbdist.stl" scale=" 1.21671  1.21671  1.21671"></mesh>
+		<mesh file="hand_1mc.stl" scale=" 1.21671  1.21671  1.21671"></mesh>
+	</asset>
+	<default>
+		<joint limited="true" damping="0.8" stiffness="0" armature=".01"></joint>
+		<geom solref="0.008 1" solimp="0.95 0.95 0.01" margin="0.001" contype="0" conaffinity="0" rgba="0.81 0.78 0.71 1"></geom>
+		<position ctrllimited="true"></position>
+		<default class="thorax"></default>
+		<default class="clavicle"></default>
+		<default class="clavphant"></default>
+		<default class="scapula"></default>
+		<default class="scapphant"></default>
+		<default class="humphant"></default>
+		<default class="humphant1"></default>
+		<default class="humerus"></default>
+		<default class="ulna"></default>
+		<default class="radius"></default>
+		<default class="proximal_row"></default>
+		<default class="hand"></default>
+	</default>
+	<worldbody>
+		<body name="cameramover" pos="-1.7 1.75 2.4">
+			<body name="cameraturner" axisangle="1 0 1 -0.2">
+				<camera name="mycamera" axisangle="0 1 0 -0.78"></camera>
+			</body>
+		</body>
+		<body name="thorax" pos="0 0 0">
+			<inertial pos="0 -0.40 0" fullinertia="17.256 7.052 14.545 0 0 0" mass="70"></inertial>
+			<geom type="mesh" mesh="thorax" contype="1" conaffinity="0"></geom>
+			<joint class="thorax" name="thorax_tx" type="slide" pos="0 0 0" axis="1 0 0" limited="false" range="-0.2 0.01" damping="0"></joint>
+			<joint class="thorax" name="thorax_ty" type="slide" pos="0 0 0" axis="0 1 0" limited="false" range="-0.05 0.1" damping="0"></joint>
+			<joint class="thorax" name="thorax_tz" type="slide" pos="0 0 0" axis="0 0 1" limited="false" range="-0.05 0.1" damping="0"></joint>
+			<joint class="thorax" name="thorax_rx" type="hinge" pos="0 0 0" axis="1 0 0" limited="false" range="-0.261482 0.134523" damping="500" stiffness="100"></joint>
+			<joint class="thorax" name="thorax_ry" type="hinge" pos="0 0 0" axis="0 1 0" limited="false" range="-0.547466 0.087193" damping="1000" stiffness="200"></joint>
+			<joint class="thorax" name="thorax_rz" type="hinge" pos="0 0 0" axis="0 0 1" limited="false" range="-0.168835 0.210188" damping="1000" stiffness="200"></joint>
+			<body name="clavicle" pos="0.00676775 0.0074151 0.0272476">
+				<geom type="mesh" mesh="clavicle" contype="0" conaffinity="0" name="clavicle"></geom>
+				<inertial pos="-0.0118727 0.00681836 0.0579598" fullinertia="0.000277741 0.000292247 5.08565e-05 -2.17302e-05 -8.00743e-05 6.14926e-05" mass="0.15600000000000003"></inertial>
+				<joint class="clavicle" name="sternoclavicular_r2" type="hinge" pos="0 0 0" axis="0.0153 0.9892987 -0.14509996" limited="false" range="-99999.9  99999.9"></joint>
+				<joint class="clavicle" name="sternoclavicular_r3" type="hinge" pos="0 0 0" axis="-0.99447254 0 -0.10499695" limited="false" range="-99999.9  99999.9"></joint>
+				<body name="clavphant" pos="-0.0153331 0.0214749 0.145022">
+					<inertial pos="       0        0        0" fullinertia="  1.1449   1.1449   1.1449        0        0        0" mass="0.00010000000000000003"></inertial>
+					<joint class="clavphant" name="unrotscap_r3" type="hinge" pos="0 0 0" axis="-0.99447254 0 -0.10499695" limited="false" range="-99999.9  99999.9"></joint>
+					<joint class="clavphant" name="unrotscap_r2" type="hinge" pos="0 0 0" axis="0.0153 0.9892987 -0.14509996" limited="false" range="-99999.9  99999.9"></joint>
+					<body name="scapula" pos="       0        0        0">
+						<geom type="mesh" mesh="scapula" contype="0" conaffinity="0" name="scapula"></geom>
+						<inertial pos="-0.0585226 -0.0374842 -0.0467954" fullinertia="0.001423 0.00131709 0.0015629 0.000514518 0.000468516 0.000276035" mass="0.7039600000000001"></inertial>
+						<joint class="scapula" name="acromioclavicular_r2" type="hinge" pos="0 0 0" axis="0.15709493 0.94726859 -0.27929088" limited="false" range="-99999.9  99999.9"></joint>
+						<joint class="scapula" name="acromioclavicular_r3" type="hinge" pos="0 0 0" axis="-0.75408404 0.29759402 0.58548703" limited="false" range="-99999.9  99999.9"></joint>
+						<joint class="scapula" name="acromioclavicular_r1" type="hinge" pos="0 0 0" axis="0.63769985 0.11859997 0.76109982" limited="false" range="-99999.9  99999.9"></joint>
+						<body name="scapphant" pos="-0.0102185 -0.03638  0.00963">
+							<inertial pos="       0        0        0" fullinertia="  1.1449   1.1449   1.1449        0        0        0" mass="0.00010000000000000003"></inertial>
+							<joint class="scapphant" name="unrothum_r1" type="hinge" pos="0 0 0" axis="0.63769985 0.11859997 0.76109982" limited="false" range="-99999.9  99999.9"></joint>
+							<joint class="scapphant" name="unrothum_r3" type="hinge" pos="0 0 0" axis="-0.75408404 0.29759402 0.58548703" limited="false" range="-99999.9  99999.9"></joint>
+							<joint class="scapphant" name="unrothum_r2" type="hinge" pos="0 0 0" axis="0.15709493 0.94726859 -0.27929088" limited="false" range="-99999.9  99999.9"></joint>
+							<body name="humphant" pos="       0        0        0">
+								<inertial pos="       0        0        0" fullinertia="  1.4385   1.4385   1.4385        0        0        0" mass="0.00010000000000000003"></inertial>
+								<joint class="humphant" name="elv_angle" type="hinge" pos="0 0 0" axis="0.0048 0.99908918 0.04240001" limited="true" range=" -1.5708  2.26893"></joint>
+								<body name="humphant1" pos="       0        0        0">
+									<inertial pos="       0        0        0" fullinertia="  1.4385   1.4385   1.4385        0        0        0" mass="0.00010000000000000003"></inertial>
+									<joint class="humphant1" name="shoulder_elv" type="hinge" pos="0 0 0" axis="-0.99826136 0.0023 0.05889802" limited="true" range="       0  3.14159"></joint>
+									<joint class="humphant1" name="shoulder1_r2" type="hinge" pos="0 0 0" axis="0.0048 0.99908918 0.04240001" limited="false" range="-99999.9  99999.9"></joint>
+									<body name="humerus" pos="       0        0        0">
+										<inertial pos="0.0216655 -0.168082 -0.0152872" fullinertia="0.0176614 0.0036701 0.0180948 -0.00049975 -0.000334452 0.00176835" mass="1.9975700000000005"></inertial>
+										<geom type="mesh" mesh="humerus" contype="0" conaffinity="1" name="humerus"></geom>
+										<joint class="humerus" name="shoulder_rot" type="hinge" pos="0 0 0" axis="0.0048 0.99908918 0.04240001" limited="true" range=" -1.5708 0.349814"></joint>
+										<body name="ulna" pos="0.00731619 -0.348299 -0.0147523">
+											<inertial pos="0.00954914 -0.0942853 0.0238644" fullinertia="0.00522679 0.00111349 0.00477347 0.000305955 -7.35292e-05 0.00105412" mass="1.1053000000000002"></inertial>
+											<geom type="mesh" mesh="ulna" contype="0" conaffinity="1" name="ulna"></geom>
+											<joint class="ulna" name="elbow_flexion" type="hinge" pos="0 0 0" axis="0.04940001 0.03660001 0.99810825" limited="true" range="       0  2.26893"></joint>
+											<body name="radius" pos="0.000393057 -0.0113033 0.0196518">
+												<inertial pos="0.0330503 -0.178407 0.0153292" fullinertia="0.000423457 8.55411e-05 0.000388725 2.91027e-05 -4.09408e-06 6.19712e-05" mass="0.23359000000000005"></inertial>
+												<geom type="mesh" mesh="radius" contype="0" conaffinity="1" name="radius"></geom>
+												<joint class="radius" name="pro_sup" type="hinge" pos="0 0 0" axis="-0.01716099 0.99266564 -0.11966796" limited="true" range=" -1.5708   1.5708"></joint>
+												<body name="wristphant" pos="0.0176875 -0.237799 0.024566">
+													<inertial pos="       0        0        0" fullinertia="   1e-05    1e-05    1e-05        0        0        0" mass="0.0010000000000000002"></inertial>
+													<joint class="proximal_row" name="deviation" type="hinge" pos="0 0 0" axis="-0.819064 -0.135611 -0.557444" limited="true" range="-0.174533 0.436332"></joint>
+													<body name="proximal_row" pos="       0        0        0">
+														<inertial pos="       0        0        0" fullinertia="1.48038e-05 1.48038e-05 1.48038e-05        0        0        0" mass="0.00010000000000000003"></inertial>
+														<geom type="mesh" mesh="lunate_MODIFIED" contype="0" conaffinity="1" name="lunate_MODIFIED"></geom>
+														<geom type="mesh" mesh="sdfastSCAPHOIDw" contype="0" conaffinity="1" name="sdfastSCAPHOIDw"></geom>
+														<geom type="mesh" mesh="sdfastPISIFORMw" contype="0" conaffinity="1" name="sdfastPISIFORMw"></geom>
+														<geom type="mesh" mesh="sdfastTRIQUETRALw" contype="0" conaffinity="1" name="sdfastTRIQUETRALw"></geom>
+														<joint class="proximal_row" name="flexion" type="hinge" pos="0 0 0" axis="0.95642673 -0.25220693 0.14710396" limited="true" range="-0.610865 0.610865"></joint>
+														<body name="hand" pos="0.0048571 -0.0183163 0.00283128">
+															<inertial pos="-0.00366611 -0.0517093 -0.00136521" fullinertia="0.000162842 8.88228e-05 0.000222057 1.33234e-06 -2.96076e-07 1.77646e-05" mass="0.5819000000000001"></inertial>
+															<joint class="hand" name="wrist_hand_r1" type="hinge" pos="0 0 0" axis="0.8991357 -0.34905288 -0.26403991" limited="false" range="-99999.9  99999.9"></joint>
+															<joint class="hand" name="wrist_hand_r3" type="hinge" pos="0 0 0" axis="0.99711853 0.01069999 -0.07510096" limited="false" range="-99999.9  99999.9"></joint>
+															<geom type="mesh" mesh="sdfast_1seg_hand_fr_c_5mc" contype="0" conaffinity="1" name="sdfast_1seg_hand_fr_c_5mc"></geom>
+															<geom type="mesh" mesh="sdfast_1seg_hand_fr_c_4mc" contype="0" conaffinity="1" name="sdfast_1seg_hand_fr_c_4mc"></geom>
+															<geom type="mesh" mesh="sdfast_1seg_hand_fr_c_3mc" contype="0" conaffinity="1" name="sdfast_1seg_hand_fr_c_3mc"></geom>
+															<geom type="mesh" mesh="sdfast_1seg_hand_fr_c_trapezium" contype="0" conaffinity="1" name="sdfast_1seg_hand_fr_c_trapezium"></geom>
+															<geom type="mesh" mesh="sdfast_1seg_hand_fr_c_trapezoid" contype="0" conaffinity="1" name="sdfast_1seg_hand_fr_c_trapezoid"></geom>
+															<geom type="mesh" mesh="sdfast_1seg_hand_fr_c_hamate" contype="0" conaffinity="1" name="sdfast_1seg_hand_fr_c_hamate"></geom>
+															<geom type="mesh" mesh="capitate" contype="0" conaffinity="1" name="capitate"></geom>
+															<geom type="mesh" mesh="hand_3proxph" contype="0" conaffinity="1" name="hand_3proxph"></geom>
+															<geom type="mesh" mesh="hand_3midph" contype="0" conaffinity="1" name="hand_3midph"></geom>
+															<geom type="mesh" mesh="hand_3distph" contype="0" conaffinity="1" name="hand_3distph"></geom>
+															<geom type="mesh" mesh="hand_4proxph" contype="0" conaffinity="1" name="hand_4proxph"></geom>
+															<geom type="mesh" mesh="hand_4midph" contype="0" conaffinity="1" name="hand_4midph"></geom>
+															<geom type="mesh" mesh="hand_4distph" contype="0" conaffinity="1" name="hand_4distph"></geom>
+															<geom type="mesh" mesh="hand_5proxph" contype="0" conaffinity="1" name="hand_5proxph"></geom>
+															<geom type="mesh" mesh="hand_5midph" contype="0" conaffinity="1" name="hand_5midph"></geom>
+															<geom type="mesh" mesh="hand_5distph" contype="0" conaffinity="1" name="hand_5distph"></geom>
+															<geom type="mesh" mesh="hand_thumbprox" contype="0" conaffinity="1" name="hand_thumbprox"></geom>
+															<geom type="mesh" mesh="hand_thumbdist" contype="0" conaffinity="1" name="hand_thumbdist"></geom>
+															<geom type="mesh" mesh="hand_1mc" contype="0" conaffinity="1" name="hand_1mc"></geom>
+															<body name="index0" pos="0.0124043 -0.0081264 0.000250642" euler="0 0 0">
+																<inertial pos="       0        0        0" fullinertia="   1e-05    1e-05    1e-05        0        0        0" mass="0.0010000000000000002"></inertial>
+																<geom type="mesh" mesh="sdfast_1seg_hand_fr_c_2mc" contype="0" conaffinity="1" name="sdfast_1seg_hand_fr_c_2mc"></geom>
+																<body name="index1" pos="0.0104759 -0.0719671 0.00757644" euler="-0.79 0 0 ">
+																	<inertial pos="       0        0        0" fullinertia="   1e-05    1e-05    1e-05        0        0        0" mass="0.0010000000000000002"></inertial>
+																	<geom type="mesh" mesh="hand_2proxph" contype="0" conaffinity="1" name="hand_2proxph"></geom>
+																	<body name="index2" pos="0.00250764 -0.0479322 -0.0206342" euler="0 0 0">
+																		<inertial pos="       0        0        0" fullinertia="   1e-05    1e-05    1e-05        0        0        0" mass="0.0010000000000000002"></inertial>
+																		<geom type="mesh" mesh="hand_2midph" contype="0" conaffinity="1" name="hand_2midph"></geom>
+																		<body name="index3" pos="-0.000767743 -0.0146078 -0.0248269" euler="0 0 0">
+																			<inertial pos="       0        0        0" fullinertia="   1e-05    1e-05    1e-05        0        0        0" mass="0.0010000000000000002"></inertial>
+																			<geom type="mesh" mesh="hand_2distph" contype="0" conaffinity="1" name="hand_2distph"></geom>
+																		</body>
+																	</body>
+																</body>
+															</body>
+															<body name="end-effector" pos="0.0330212 -0.186526 0.0401827">
+																<inertial pos="       0        0        0" fullinertia="   1e-05    1e-05    1e-05        0        0        0" mass="0.0010000000000000002"></inertial>
+																<geom name="end-effector" pos="0 0 0" rgba="0.2 0.9 0.2 0.4" size=".003" type="sphere" contype="0" conaffinity="0"></geom>
+																<site name="accsite_end-effector" pos="0 0 0" rgba="0.2 0.9 0.2 0.4"></site>
+															</body>
+														</body>
+													</body>
+												</body>
+											</body>
+										</body>
+									</body>
+								</body>
+							</body>
+						</body>
+					</body>
+				</body>
+			</body>
+		</body>
+		<body name="target" pos="0 0 0">
+			<inertial pos="0 0 0" mass="0.00418879" diaginertia="0.001 0.001 0.001"></inertial>
+			<geom density="0.0001" name="target" pos="0 0 0" rgba="0.9 0.2 0.2 0.4" size=".01" type="sphere"></geom>
+		</body>
+		<body name="target1" pos="0 0 0">
+			<geom conaffinity="0" contype="0" pos="0 0 0" rgba="1 1 1 0.08" size=".025" type="sphere"></geom>
+		</body>
+		<body name="target2" pos="0 0 0">
+			<geom conaffinity="0" contype="0" pos="0 0 0" rgba="1 1 1 0.08" size=".025" type="sphere"></geom>
+		</body>
+		<body name="target3" pos="0 0 0">
+			<geom conaffinity="0" contype="0" pos="0 0 0" rgba="1 1 1 0.08" size=".025" type="sphere"></geom>
+		</body>
+		<body name="target4" pos="0 0 0">
+			<geom conaffinity="0" contype="0" pos="0 0 0" rgba="1 1 1 0.08" size=".025" type="sphere"></geom>
+		</body>
+		<body name="target5" pos="0 0 0">
+			<geom conaffinity="0" contype="0" pos="0 0 0" rgba="1 1 1 0.08" size=".025" type="sphere"></geom>
+		</body>
+		<body name="target6" pos="0 0 0">
+			<geom conaffinity="0" contype="0" pos="0 0 0" rgba="1 1 1 0.08" size=".025" type="sphere"></geom>
+		</body>
+		<body name="target7" pos="0 0 0">
+			<geom conaffinity="0" contype="0" pos="0 0 0" rgba="1 1 1 0.08" size=".025" type="sphere"></geom>
+		</body>
+		<body name="target8" pos="0 0 0">
+			<geom conaffinity="0" contype="0" pos="0 0 0" rgba="1 1 1 0.08" size=".025" type="sphere"></geom>
+		</body>
+		<body name="target9" pos="0 0 0">
+			<geom conaffinity="0" contype="0" pos="0 0 0" rgba="1 1 1 0.08" size=".025" type="sphere"></geom>
+		</body>
+		<body name="target10" pos="0 0 0">
+			<geom conaffinity="0" contype="0" pos="0 0 0" rgba="1 1 1 0.08" size=".025" type="sphere"></geom>
+		</body>
+		<body name="target11" pos="0 0 0">
+			<geom conaffinity="0" contype="0" pos="0 0 0" rgba="1 1 1 0.08" size=".025" type="sphere"></geom>
+		</body>
+		<body name="target12" pos="0 0 0">
+			<geom conaffinity="0" contype="0" pos="0 0 0" rgba="1 1 1 0.08" size=".025" type="sphere"></geom>
+		</body>
+		<body name="target13" pos="0 0 0">
+			<geom conaffinity="0" contype="0" pos="0 0 0" rgba="1 1 1 0.08" size=".025" type="sphere"></geom>
+		</body>
+		<body name="cursor" pos="0 0 0">
+			<geom conaffinity="0" contype="0" name="cursor" pos="0 0 0" rgba="0.9 0 0.9 0.4" size=".01" type="sphere"></geom>
+		</body>
+		<light directional="true" pos="0  4 0" dir="0 -1 0" diffuse="0.8 0.8 0.8" specular=".3 .3 .3"></light>
+		<light directional="true" pos="-3  1 0" dir="1 0 0" diffuse="0.5 0.5 0.5" specular=".3 .3 .3"></light>
+		<light directional="true" pos="0  1 3" dir="0 0 -1" diffuse="0.5 0.5 0.5" specular=".3 .3 .3"></light>
+		<geom name="tableTop" type="plane" pos="0 0 0" size="0 0 0.01" rgba=".6 .6 .5 1" contype="0" conaffinity="0" axisangle="-1 0 0 1.57"></geom>
+		<geom name="background_left" type="plane" pos="0 -0.4 -1.15" size="0 0 0.01" contype="0" conaffinity="0" material="bckgmat"></geom>
+		<geom name="background_back" type="plane" pos="1.2 -0.4 -1.5" size="0 0 0.01" axisangle="0 1 0 -1.57" contype="0" conaffinity="0" material="bckgmat"></geom>
+		<geom name="Xdir" material="MatGnd" type="box" pos="0.1 0.05 0" size="0.2 0.005 0.005" rgba="1 0 0 1" contype="0" conaffinity="0"></geom>
+		<geom name="Ydir" material="MatGnd" type="box" pos="0 0.15 0" size="0.005 0.2 0.005" rgba="0 1 0 1" contype="0" conaffinity="0"></geom>
+		<geom name="Zdir" material="MatGnd" type="box" pos="0 0.05 0.1" size="0.005 0.005 0.2" rgba="0 0 1 1" contype="0" conaffinity="0"></geom>
+	</worldbody>
+	<sensor>
+		<accelerometer name="accsensor_end-effector" site="accsite_end-effector"></accelerometer>
+	</sensor>
+	<equality>
+		<joint name="sternoclavicular_r2_con" joint1="sternoclavicular_r2" joint2="shoulder_elv" polycoef="0 -0.2420005424 0 0 0" active="true"></joint>
+		<joint name="sternoclavicular_r3_con" joint1="sternoclavicular_r3" joint2="shoulder_elv" polycoef="0 0.10250000795 0 0 0" active="true"></joint>
+		<joint name="unrotscap_r2_con" joint1="unrotscap_r2" joint2="shoulder_elv" polycoef="0 0.2420005424 0 0 0" active="true"></joint>
+		<joint name="unrotscap_r3_con" joint1="unrotscap_r3" joint2="shoulder_elv" polycoef="0 -0.10250000795 0 0 0" active="true"></joint>
+		<joint name="acromioclavicular_r1_con" joint1="acromioclavicular_r1" joint2="shoulder_elv" polycoef="0 0.17800029793 0 0 0" active="true"></joint>
+		<joint name="acromioclavicular_r2_con" joint1="acromioclavicular_r2" joint2="shoulder_elv" polycoef="0 -0.04900018716 0 0 0" active="true"></joint>
+		<joint name="acromioclavicular_r3_con" joint1="acromioclavicular_r3" joint2="shoulder_elv" polycoef="0 0.39600227655 0 0 0" active="true"></joint>
+		<joint name="unrothum_r1_con" joint1="unrothum_r1" joint2="shoulder_elv" polycoef="0 -0.17800029793 0 0 0" active="true"></joint>
+		<joint name="unrothum_r2_con" joint1="unrothum_r2" joint2="shoulder_elv" polycoef="0 0.04900018716 0 0 0" active="true"></joint>
+		<joint name="unrothum_r3_con" joint1="unrothum_r3" joint2="shoulder_elv" polycoef="0 -0.39600227655 0 0 0" active="true"></joint>
+		<joint name="shoulder1_r2_con" joint1="shoulder1_r2" joint2="elv_angle" polycoef="0 -1 0 0 0" active="true"></joint>
+		<joint name="wrist_hand_r1_con" joint1="wrist_hand_r1" joint2="deviation" polycoef="-1.922962686383564e-16 1.3571406939363562 -0.8185067653446366 0 0" active="true"></joint>
+		<joint name="wrist_hand_r3_con" joint1="wrist_hand_r3" joint2="flexion" polycoef="0 0.99999961 0 0 0" active="true"></joint>
+		<joint name="thorax_rx_con" joint1="thorax_rx" polycoef="0 0 0 0 0" active="true" solref="0.02 1"></joint>
+		<joint name="thorax_ry_con" joint1="thorax_ry" polycoef="0 0 0 0 0" active="true" solref="0.02 1"></joint>
+		<joint name="thorax_rz_con" joint1="thorax_rz" polycoef="0 0 0 0 0" active="true" solref="0.02 1"></joint>
+		<joint name="thorax_tx_con" joint1="thorax_tx" polycoef="0 0 0 0 0" active="true" solref="0.02 1"></joint>
+		<joint name="thorax_ty_con" joint1="thorax_ty" polycoef="0 0 0 0 0" active="true" solref="0.02 1"></joint>
+		<joint name="thorax_tz_con" joint1="thorax_tz" polycoef="0 0 0 0 0" active="true" solref="0.02 1"></joint>
+		<weld name="origin_to_worldbody" body1="thorax" relpose="-0.02153019919 -0.00858509793 0.20849523568 1 0 0 0" active="false"></weld>
+	</equality>
+	<actuator>
+		<motor joint="elv_angle" name="A_elv_angle" gear="16.11901271" ctrllimited="true" ctrlrange="-0.790507        1"></motor>
+		<motor joint="shoulder_elv" name="A_shoulder_elv" gear="20.43067465" ctrllimited="true" ctrlrange="-0.421223        1"></motor>
+		<motor joint="shoulder_rot" name="A_shoulder_rot" gear="3.34644492" ctrllimited="true" ctrlrange="      -1 0.207765"></motor>
+		<motor joint="elbow_flexion" name="A_elbow_flexion" gear="5.07799429" ctrllimited="true" ctrlrange="0.0489382        1"></motor>
+		<motor joint="pro_sup" name="A_pro_sup" gear="1.82096401" ctrllimited="true" ctrlrange="      -1 0.938046"></motor>
+		<motor joint="deviation" name="A_deviation" gear="2.10768549" ctrllimited="true" ctrlrange="      -1 0.949102"></motor>
+		<motor joint="flexion" name="A_flexion" gear="1.86148278" ctrllimited="true" ctrlrange="      -1 0.418397"></motor>
+	</actuator>
+	<keyframe>
+		<key name="Init" time="0" qpos="0 0 0 0 0 0 -0.1267109 0.05366888 -0.05366888 0.1267109 -0.02565634 0.20734512 0.09320058 -0.09320058 -0.20734512 0.02565634 0 0.52359878 0 0 0 -0.00000114591 0 0 0 0"></key>
+		<key name="Standing" time="0" qpos="0.38155396  1.4933493   0.15859044 -0.18121656 -1.83323467 -0.26719512 -0.1267109 0.05366888 -0.05366888 0.1267109 -0.02565634 0.20734512 0.09320058 -0.09320058 -0.20734512 0.02565634 0 0.52359878 0 0 0 -0.00000114591 0 0 0 0"></key>
+	</keyframe>
+</mujoco>

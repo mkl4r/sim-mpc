@@ -1,0 +1,27 @@
+[project]
+name = "sim_mpc"
+description = "Biomechanical simulation via MuJoCo and MPC (Python package)"
+version = "0.1.0"
+authors = [
+    { name = "Markus Klar", email = "markus.klar@uni-bayreuth.de" }
+]
+dependencies = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "mujoco-py",
+    "cfat @ git+https://github.com/fl0fischer/cfat.git#egg=cfat"
+]
+
+[project.optional-dependencies]
+dev = [
+    "PIL",
+    "imageio",
+    "concurrent"
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+
+[tool.setuptools.package-data]
+sim_mpc = ["*.py", "data/models/*", "data/models/Geometry/*", "data/models/Geometry/InputDevices/*", "data/parameters/*.csv", "data/targets/*"]
