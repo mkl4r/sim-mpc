@@ -1,3 +1,10 @@
+''' 
+Script to create all plots (and compute the respective quantitative metrics) 
+from the TOCHI submission "SimMPC: Simulating Interaction Movements with Model Predictive Control".
+Authors: Florian Fischer
+Date: 11.2022
+'''
+
 import os, time
 from pathlib import Path
 import logging
