@@ -1,8 +1,8 @@
 # sim-mpc
 
-This repository contains source code for the Model Predictive Control framework __SimMPC__, which can be used to simulate HCI movements using biomechanical models and the physics simulation [MuJoCo](https://mujoco.org/). This framework is described in detail in the [TOCHI](https://dl.acm.org/journal/tochi) submission *SimMPC: Simulating Interaction Movements with Model Predictive Control* (just submitted). All simulation results used in this work are available in the [SIM-MPC Dataset](https://zenodo.org/record/7304381). The simulation uses the [ISO-VR-Pointing Dataset](https://zenodo.org/record/7300062). To obtain the maximum feasible torques used in the models, the [CFAT method](https://github.com/fl0fischer/cfat) was used.
+This repository contains source code for the Model Predictive Control framework __SimMPC__, which can be used to simulate HCI movements using biomechanical models and the physics simulation [MuJoCo](https://mujoco.org/). This framework is described in detail in the [TOCHI submission](https://dl.acm.org/doi/10.1145/3577016) *SimMPC: Simulating Interaction Movements with Model Predictive Control*. All simulation results used in this work are available in the [SIM-MPC Dataset](https://zenodo.org/record/7304381). The simulation uses the [ISO-VR-Pointing Dataset](https://zenodo.org/record/7300062). To obtain the maximum feasible torques used in the models, the [CFAT method](https://github.com/fl0fischer/cfat) was used.
 
-## Papers
+## Paper
 
 ### [Simulating Interaction Movements via Model Predictive Control](https://dl.acm.org/doi/10.1145/3577016)
 
