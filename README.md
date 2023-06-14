@@ -9,7 +9,7 @@ This repository contains source code for the Model Predictive Control framework 
 [Click here for a YouTube video](https://youtu.be/6xbYUfsTvaY)
 
 ## Cite
-If you use our framework/toolbox in your work, please cite this paper as \n
+If you use our framework/toolbox in your work, please cite this paper as\
 Markus Klar, Florian Fischer, Arthur Fleig, Miroslav Bachinski, and Jörg Müller. 2023. Simulating Interaction Movements via Model Predictive Control. ACM Trans. Comput.-Hum. Interact. 30, 3, Article 44 (June 2023), 50 pages. https://doi.org/10.1145/3577016
 ```
 @article{10.1145/3577016,
