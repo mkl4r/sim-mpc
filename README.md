@@ -1,6 +1,37 @@
 # sim-mpc
 
 This repository contains source code for the Model Predictive Control framework __SimMPC__, which can be used to simulate HCI movements using biomechanical models and the physics simulation [MuJoCo](https://mujoco.org/). This framework is described in detail in the [TOCHI](https://dl.acm.org/journal/tochi) submission *SimMPC: Simulating Interaction Movements with Model Predictive Control* (just submitted). All simulation results used in this work are available in the [SIM-MPC Dataset](https://zenodo.org/record/7304381). The simulation uses the [ISO-VR-Pointing Dataset](https://zenodo.org/record/7300062). To obtain the maximum feasible torques used in the models, the [CFAT method](https://github.com/fl0fischer/cfat) was used.
+
+## Papers
+
+### [Simulating Interaction Movements via Model Predictive Control](https://dl.acm.org/doi/10.1145/3577016)
+
+[Click here for a YouTube video](https://youtu.be/6xbYUfsTvaY)
+
+## Cite
+If you use our framework/toolbox in your work, please cite this paper as
+Markus Klar, Florian Fischer, Arthur Fleig, Miroslav Bachinski, and Jörg Müller. 2023. Simulating Interaction Movements via Model Predictive Control. ACM Trans. Comput.-Hum. Interact. 30, 3, Article 44 (June 2023), 50 pages. https://doi.org/10.1145/3577016
+```
+@article{10.1145/3577016,
+author = {Klar, Markus and Fischer, Florian and Fleig, Arthur and Bachinski, Miroslav and M\"{u}ller, J\"{o}rg},
+title = {Simulating Interaction Movements via Model Predictive Control},
+year = {2023},
+issue_date = {June 2023},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {30},
+number = {3},
+issn = {1073-0516},
+url = {https://doi.org/10.1145/3577016},
+doi = {10.1145/3577016},
+journal = {ACM Trans. Comput.-Hum. Interact.},
+month = {jun},
+articleno = {44},
+numpages = {50},
+keywords = {interaction techniques, optimal feedback control, maximum voluntary torques, Simulation, biomechanics, mid-air pointing, model predictive control, AR/VR environments}
+}
+```
+
   
 ## Structure
 This repository is divided in three folders:
@@ -26,3 +57,4 @@ Florian Fischer
 Arthur Fleig  
 Miroslav Bachinski  
 Jörg Müller  
+
